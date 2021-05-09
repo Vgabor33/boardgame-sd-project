@@ -2,8 +2,17 @@ package board;
 
 import org.tinylog.Logger;
 
+/**
+ * This class can check the {@link board.Board Board}'s state (which is the game's state).
+ */
 public class BoardState
 {
+
+    /**
+     * Returns a boolean based on the {@link board.Board gameBoard}'s state.
+     * @param gameBoard the {@link board.Board gameBoard}'s state
+     * @return {@code true} if the Blue player has won, {@code false} otherwise
+     */
     public static boolean isBlueWon (Board gameBoard)
     {
         int fieldCount = 0;
@@ -26,6 +35,11 @@ public class BoardState
         return false;
     }
 
+    /**
+     * Returns a boolean based on the {@link board.Board gameBoard}'s state.
+     * @param gameBoard the {@link board.Board gameBoard}'s state
+     * @return {@code true} if the Red player has won, {@code false} otherwise
+     */
     public static boolean isRedWon (Board gameBoard)
     {
         int fieldCount = 0;

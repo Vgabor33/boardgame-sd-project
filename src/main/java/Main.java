@@ -1,7 +1,13 @@
+/**
+ * Using {@link board board} package to create a representation to the console.
+ */
+
 import board.*;
 
+//CHECKSTYLE:OFF
 public class Main
 {
+
     public static void main(String[] args)
     {
         Board.getInstance();
