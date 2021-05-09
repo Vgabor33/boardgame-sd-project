@@ -44,12 +44,12 @@ public class Board
         gameBoard = new Board();
     }
 
-    public FieldState getFieldstate(int i, int j)
+    public FieldState getFieldState(int i, int j)
     {
         return Board.getInstance().board[i][j];
     }
 
-    public void setFieldstate(int i, int j, FieldState state) throws NullPointerException, IllegalArgumentException
+    public void setFieldState(int i, int j, FieldState state) throws NullPointerException, IllegalArgumentException
     {
         if (state.equals(null))
         {

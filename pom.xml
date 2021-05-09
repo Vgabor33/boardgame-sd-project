@@ -11,6 +11,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+
+        <junit.jupiter.version>5.7.1</junit.jupiter.version>
+
+        <surefire.version>3.0.0-M5</surefire.version>
+
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <maven.compiler.release>16</maven.compiler.release>
         <exec.mainClass>Main</exec.mainClass>
     </properties>
@@ -26,4 +33,19 @@
             <email>veressgabi33@gmail.com</email>
         </developer>
     </developers>
+    <dependencies>
+        <!--junit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
