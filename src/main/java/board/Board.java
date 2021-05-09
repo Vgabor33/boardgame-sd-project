@@ -1,5 +1,7 @@
 package board;
 
+import org.tinylog.Logger;
+
 public class Board
 {
 
@@ -33,7 +35,9 @@ public class Board
 
     public static Board getInstance()
     {
-        if (gameBoard == null){
+        if (gameBoard == null)
+        {
+            Logger.info("Setting up board");
             gameBoard = new Board();
         }
         return gameBoard;
@@ -41,6 +45,7 @@ public class Board
 
     public static void resetBoard()
     {
+        Logger.info("Reseting board");
         gameBoard = new Board();
     }
 
@@ -53,6 +58,7 @@ public class Board
     {
         if (state.equals(null))
         {
+            Logger.error("FieldState is null");
             throw new NullPointerException("Field state cannot be null!");
         }
         else if(Board.getInstance().equals(i,j,FieldState.EMPTY))
@@ -61,6 +67,7 @@ public class Board
         }
         else
         {
+            Logger.error("FieldState is already set!");
             throw new IllegalArgumentException("Field state already set!");
         }
     }
