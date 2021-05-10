@@ -1,4 +1,4 @@
-/**
+package main; /**
  * Using {@link board board} package to create a representation to the console.
  */
 
