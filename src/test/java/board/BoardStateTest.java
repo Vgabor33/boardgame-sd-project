@@ -7,20 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardStateTest
 {
 
-    private static Board setWinningState(int row_or_column, FieldState state)
+    private static Board setRedWinningState(int row)
     {
         for (int i = 0; i < 11; i++)
         {
-            if(state.equals(FieldState.RED))
-            {
-                if(Board.getInstance().getFieldState(i,row_or_column).equals(FieldState.EMPTY))
-                    Board.getInstance().setFieldState(i, row_or_column, state);
-            }
-            else if (state.equals(FieldState.BLUE))
-            {
-                if(Board.getInstance().getFieldState(row_or_column,i).equals(FieldState.EMPTY))
-                    Board.getInstance().setFieldState( row_or_column,i, state);
-            }
+                if(Board.getInstance().getFieldState(row,i).equals(FieldState.EMPTY))
+                    Board.getInstance().setFieldState(row,i,FieldState.RED);
+        }
+        return Board.getInstance();
+    }
+    private static Board setBlueWinningState(int column)
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            if(Board.getInstance().getFieldState(i,column).equals(FieldState.EMPTY))
+                Board.getInstance().setFieldState(i,column,FieldState.BLUE);
         }
         return Board.getInstance();
     }
@@ -28,9 +29,9 @@ class BoardStateTest
     @Test
     void isBlueWon()
     {
-        for (int k = 0; k < 11; k++)
+        for (int k = 1; k < 11; k=k+2)
         {
-            assertTrue(BoardState.isBlueWon(setWinningState(k, FieldState.BLUE)));
+            assertTrue(BoardState.isBlueWon(setBlueWinningState(k)));
         }
         Board.resetBoard();
         assertFalse(BoardState.isBlueWon(Board.getInstance()));
@@ -39,9 +40,9 @@ class BoardStateTest
     @Test
     void isRedWon()
     {
-        for (int k = 0; k < 11; k++)
+        for (int k = 1; k < 11; k=k+2)
         {
-            assertTrue(BoardState.isRedWon(setWinningState(k, FieldState.RED)));
+                assertTrue(BoardState.isRedWon(setRedWinningState(k)));
         }
         Board.resetBoard();
         assertFalse(BoardState.isRedWon(Board.getInstance()));

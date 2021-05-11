@@ -26,7 +26,7 @@ public class BoardState
             fieldCount = 0;
             for (int j=0; j<11; j++)
             {
-                if( Board.getInstance().getFieldState(i,j).equals(FieldState.BLUE))
+                if( Board.getInstance().getFieldState(j,i).equals(FieldState.BLUE))
                 {
                     fieldCount++;
                 }
@@ -53,7 +53,7 @@ public class BoardState
             fieldCount = 0;
             for (int j=0; j<11; j++)
             {
-                if( Board.getInstance().getFieldState(j,i).equals(FieldState.RED))
+                if( Board.getInstance().getFieldState(i,j).equals(FieldState.RED))
                 {
                     fieldCount++;
                 }
