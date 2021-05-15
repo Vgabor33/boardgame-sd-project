@@ -1,20 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.NewGameController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.NewGameController">
    <children>
-      <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER" layoutX="218.0" layoutY="154.0" mnemonicParsing="false" text="New Game">
+      <Button fx:id="newGameButton" alignment="CENTER" contentDisplay="CENTER" layoutX="573.0" layoutY="320.0" mnemonicParsing="false" text="New Game">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Label fx:id="descLabel" contentDisplay="CENTER" layoutX="63.0" layoutY="216.0" prefHeight="168.0" prefWidth="475.0" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="descLabel" contentDisplay="CENTER" layoutX="163.0" layoutY="14.0" prefHeight="168.0" prefWidth="475.0" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <CheckBox fx:id="starterPlayerCheckBox" layoutX="42.0" layoutY="320.0" mnemonicParsing="false" text="Red player starts?">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </CheckBox>
+      <HBox fx:id="redPlayerHBox" alignment="CENTER_LEFT" fillHeight="false" layoutX="42.0" layoutY="187.0" prefHeight="50.0" prefWidth="400.0">
+         <children>
+            <TextFlow fx:id="redAskerFlow" disable="true" nodeOrientation="LEFT_TO_RIGHT">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></TextFlow>
+            <TextField fx:id="redNameField" />
+         </children>
+      </HBox>
+      <HBox fx:id="blueHBox" alignment="BOTTOM_LEFT" fillHeight="false" layoutX="42.0" layoutY="245.0" prefHeight="50.0" prefWidth="400.0">
+         <children>
+            <TextFlow fx:id="blueAskerFlow" disable="true" nodeOrientation="LEFT_TO_RIGHT">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></TextFlow>
+            <TextField fx:id="blueNameField" />
+         </children>
+      </HBox>
    </children>
 </Pane>

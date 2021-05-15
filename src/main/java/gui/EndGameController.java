@@ -22,6 +22,17 @@ public class EndGameController
         primaryStage = stage;
     }
 
+    private static String blueName;
+    private static String redName;
+
+    public static void setBlueName(String name)
+    {
+        blueName = name;
+    }
+    public static void setRedName(String name)
+    {
+        redName = name;
+    }
 
     @FXML
     private TextFlow winnerFlow;
@@ -36,7 +47,7 @@ public class EndGameController
 
         if(BoardState.isBlueWon(Board.getInstance()))
         {
-            Text winner = new Text("BLUE");
+            Text winner = new Text(blueName);
 
             winner.setFill(Color.BLUE);
             winner.setStyle("-fx-font-size: 30");
@@ -45,7 +56,7 @@ public class EndGameController
         }
         else
         {
-            Text winner = new Text("RED");
+            Text winner = new Text(redName);
 
             winner.setStyle("-fx-font-size: 30");
             annoncer.setStyle("-fx-font-size: 27");

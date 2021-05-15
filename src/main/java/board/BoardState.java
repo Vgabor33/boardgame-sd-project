@@ -10,7 +10,7 @@ public class BoardState
 
     /**
      * Returns a boolean based on the {@link board.Board gameBoard}'s state.
-     * @param gameBoard the {@link board.Board gameBoard}'s state
+     * @param gameBoard the actual {@link board.Board gameBoard}'s state
      * @return {@code true} if the Blue player has won, {@code false} otherwise
      */
     public static boolean isBlueWon (Board gameBoard)
@@ -37,7 +37,7 @@ public class BoardState
 
     /**
      * Returns a boolean based on the {@link board.Board gameBoard}'s state.
-     * @param gameBoard the {@link board.Board gameBoard}'s state
+     * @param gameBoard the actuak {@link board.Board gameBoard}'s state
      * @return {@code true} if the Red player has won, {@code false} otherwise
      */
     public static boolean isRedWon (Board gameBoard)
@@ -60,5 +60,25 @@ public class BoardState
             }
         }
         return false;
+    }
+
+    /**
+     * Returns a {@code boolean} which tells us if there is an {@code EMPTY} field.
+     * @param gameBoard the actual {@link board.Board gameBoard}'s state
+     * @return {@code true} if the {@link board.Board gameBoard} doesn't have any {@code EMPTY} field(s), {@code false} otherwise
+     */
+    public static boolean isFull (Board gameBoard)
+    {
+        for (int i=0; i<11; i++)
+        {
+            for (int j=0; j<11; j++)
+            {
+                if( Board.getInstance().getFieldState(i,j).equals(FieldState.EMPTY))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
