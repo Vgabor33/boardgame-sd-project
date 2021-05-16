@@ -35,6 +35,13 @@ public interface LeaderboardDAO
     void insertUser(@Bind("name") String name);
 
     /**
+     *This method deletes an user from the database by it's {@code name}.
+     * @param name the users whose data we would like to delete
+     */
+    @SqlUpdate("DELETE FROM leaderboard WHERE name IN(:name)")
+    void deleteUser(@Bind("name") String name);
+
+    /**
      * Returns the number of wins a {@link jdbi.Player Player} has.
      * @param name {@link jdbi.Player Player}'s name
      * @return number of wins the {@link jdbi.Player Player} has

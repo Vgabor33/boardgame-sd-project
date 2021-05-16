@@ -43,7 +43,7 @@ public class LeaderboardController
      */
     public static Jdbi getInstance()
     {
-        if(jdbi.equals(null))
+        if(jdbi==null)
         {
             new LeaderboardController();
         }
