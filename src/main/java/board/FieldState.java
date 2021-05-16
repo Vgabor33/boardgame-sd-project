@@ -6,5 +6,4 @@ public enum FieldState
 {
     //CHECKSTYLE:OFF
     EMPTY, RED, BLUE;
-    //CHECKSTYLE:ON
 }

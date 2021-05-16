@@ -1,6 +1,5 @@
 package board;
 
-import org.tinylog.Logger;
 
 /**
  * This class can check the {@link board.Board Board}'s state (which is the game's state).

@@ -104,6 +104,7 @@ public class NewGameController
             primaryStage.setScene(new Scene(newGame));
         } catch (IOException e)
         {
+            Logger.error("Could not find boardgameui.fxml!");
             throw new RuntimeException("Could not find boardgameui.fxml!", e);
         }
     }

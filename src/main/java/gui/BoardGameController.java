@@ -139,6 +139,7 @@ public class BoardGameController
             }
             catch (IOException e)
             {
+                Logger.error("Could not find endui.fxml!");
                 throw new RuntimeException("Could not find endui.fxml!", e);
             }
         }
