@@ -7,8 +7,6 @@ import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 import org.tinylog.Logger;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 
 /**

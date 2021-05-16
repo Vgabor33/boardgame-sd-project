@@ -20,7 +20,6 @@ public class BoardState
         {
             if(fieldCount == 11)
             {
-                Logger.info("Blue has won!");
                 return true;
             }
             fieldCount = 0;
@@ -47,7 +46,6 @@ public class BoardState
         {
             if(fieldCount == 11)
             {
-                Logger.info("Red has won!");
                 return true;
             }
             fieldCount = 0;

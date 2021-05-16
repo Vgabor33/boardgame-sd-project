@@ -75,6 +75,7 @@ public class NewGameController
         }
         else
         {
+            Logger.info("Not all player's name set. Please set both player's name!");
             notSetWarning("Player names are not set!", "Could not start the game!","Set both player's name to start!");
         }
     }
@@ -92,6 +93,7 @@ public class NewGameController
     {
         try
         {
+            Logger.info("Switching to game screen!");
             Parent newGame = UILoader.fxmlLoader(getClass().getResource("/gameboardui.fxml"));
 
             primaryStage.setTitle("Game");
@@ -140,10 +142,12 @@ public class NewGameController
     {
         if(starterPlayerCheckBox.isSelected())
         {
+            Logger.info("Red starts!");
             player.PlayerState.setStartingPlayer(true);
         }
         else
         {
+            Logger.info("Blue starts!");
             player.PlayerState.setStartingPlayer(false);
         }
     }

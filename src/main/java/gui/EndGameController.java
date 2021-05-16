@@ -12,11 +12,9 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import jdbi.LeaderboardController;
 import jdbi.Player;
-import org.checkerframework.checker.units.qual.A;
+import org.tinylog.Logger;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 
 //CHECKSTYLE:OFF
@@ -85,6 +83,7 @@ public class EndGameController
             @Override
             public void handle(MouseEvent mouseEvent)
             {
+                Logger.info("Exiting...");
                 primaryStage.close();
             }
         });

@@ -17,6 +17,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 import player.PlayerState;
 
 import java.io.IOException;
@@ -69,7 +70,7 @@ public class BoardGameController
         var square = (StackPane) event.getSource();
         var row = GridPane.getRowIndex(square);
         var col = GridPane.getColumnIndex(square);
-
+        Logger.info("Click on {}/{}",row,col);
         var rectangle = (Rectangle) square.getChildren().get(0);
         colorEmptyRectangle(rectangle,row,col);
         isThereAWinner();
@@ -120,8 +121,17 @@ public class BoardGameController
     {
         if (BoardState.isRedWon(Board.getInstance()) || BoardState.isBlueWon(Board.getInstance()))
         {
+            if(BoardState.isRedWon(Board.getInstance()))
+            {
+                Logger.info("RED victory!");
+            }
+            else
+            {
+                Logger.info("BLUE victory!");
+            }
             try
             {
+                Logger.info("Switching to end screen!");
                 Parent endGame = UILoader.fxmlLoader(getClass().getResource("/endui.fxml"));
                 primaryStage.setTitle("Game concluded");
                 EndGameController.setController(primaryStage);
@@ -134,6 +144,7 @@ public class BoardGameController
         }
         if(BoardState.isFull(Board.getInstance()))
         {
+            Logger.info("Game ended with tie!");
             noMoveWarning("No more moves!","Tie");
         }
     }
@@ -146,21 +157,16 @@ public class BoardGameController
         VBox dialogVbox = new VBox(20);
         dialogVbox.setAlignment(Pos.CENTER);
         dialogVbox.getChildren().add(new Text(infoMessage));
-        Button newGameButton = new Button("New Game");
-        newGameButton.setOnMouseClicked(this::handleNewGame);
         Button quitButton = new Button("Quit Game");
         quitButton.setOnMouseClicked(this::handleQuit);
-        dialogVbox.getChildren().addAll(newGameButton,quitButton);
+        dialogVbox.getChildren().addAll(quitButton);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         dialog.setScene(dialogScene);
         dialog.show();
     }
-    private void handleNewGame(MouseEvent mouseEvent)
-    {
-
-    }
     private void handleQuit(MouseEvent mouseEvent)
     {
-       primaryStage.close();
+        Logger.info("Exiting...");
+        primaryStage.close();
     }
 }
