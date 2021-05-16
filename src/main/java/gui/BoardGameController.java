@@ -150,8 +150,7 @@ public class BoardGameController
         newGameButton.setOnMouseClicked(this::handleNewGame);
         Button quitButton = new Button("Quit Game");
         quitButton.setOnMouseClicked(this::handleQuit);
-        dialogVbox.getChildren().add(newGameButton);
-
+        dialogVbox.getChildren().addAll(newGameButton,quitButton);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         dialog.setScene(dialogScene);
         dialog.show();

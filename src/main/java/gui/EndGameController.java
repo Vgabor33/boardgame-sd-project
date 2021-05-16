@@ -10,6 +10,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import jdbi.LeaderboardController;
+import jdbi.Player;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 
 //CHECKSTYLE:OFF
@@ -41,6 +47,11 @@ public class EndGameController
     private Button closeButton;
 
     @FXML
+    private TextFlow winnersFlow;
+    @FXML
+    private TextFlow winsFlow;
+
+    @FXML
     private void initialize()
     {
         Text annoncer = new Text(" has won!");
@@ -48,6 +59,8 @@ public class EndGameController
         if(BoardState.isBlueWon(Board.getInstance()))
         {
             Text winner = new Text(blueName);
+
+            saveWin(blueName);
 
             winner.setFill(Color.BLUE);
             winner.setStyle("-fx-font-size: 30");
@@ -57,6 +70,8 @@ public class EndGameController
         else
         {
             Text winner = new Text(redName);
+
+            saveWin(redName);
 
             winner.setStyle("-fx-font-size: 30");
             annoncer.setStyle("-fx-font-size: 27");
@@ -71,5 +86,10 @@ public class EndGameController
                 primaryStage.close();
             }
         });
+    }
+    private void saveWin(String winner)
+    {
+        LeaderboardController db = new LeaderboardController();
+        db.insertWinner(winner);
     }
 }

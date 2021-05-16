@@ -41,6 +41,29 @@
         <exec.mainClass>main.Main</exec.mainClass>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jdbi</groupId>
+            <artifactId>jdbi3-core</artifactId>
+            <version>3.19.0</version>
+            <scope>compile</scope>
+        </dependency><dependency>
+        <groupId>org.jdbi</groupId>
+        <artifactId>jdbi3-sqlobject</artifactId>
+        <version>3.19.0</version>
+        <scope>compile</scope>
+    </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <scope>runtime</scope>
+    </dependency>
         <!--junit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -75,6 +98,18 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok-maven-plugin</artifactId>
+            <version>1.18.20.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>delombok</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
         <!--tinylog-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

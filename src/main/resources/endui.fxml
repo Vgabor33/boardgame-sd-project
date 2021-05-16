@@ -4,13 +4,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EndGameController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EndGameController">
    <children>
-      <Button fx:id="closeButton" contentDisplay="CENTER" layoutX="232.0" layoutY="179.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="137.0" text=" Quit game" textAlignment="CENTER">
+      <Button fx:id="closeButton" contentDisplay="CENTER" layoutX="397.0" layoutY="409.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="137.0" text=" Quit game" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <TextFlow fx:id="winnerFlow" layoutX="162.0" layoutY="42.0" prefHeight="127.0" prefWidth="277.0" textAlignment="CENTER" />
+      <TextFlow fx:id="winnerFlow" layoutX="103.0" layoutY="40.0" prefHeight="85.0" prefWidth="395.0" textAlignment="CENTER" />
+      <HBox layoutX="21.0" layoutY="200.0" prefHeight="293.0" prefWidth="285.0">
+         <children>
+            <TextFlow fx:id="winnersFlow" prefHeight="293.0" prefWidth="222.0" />
+            <TextFlow fx:id="winsFlow" prefHeight="200.0" prefWidth="78.0" />
+         </children>
+      </HBox>
    </children>
 </Pane>
