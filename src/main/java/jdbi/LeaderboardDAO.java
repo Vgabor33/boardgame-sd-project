@@ -1,16 +1,19 @@
 package jdbi;
 
 
+import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * DAO interface to create SQL {@code Query}s.
  */
+@RegisterBeanMapper(Player.class)
 public interface LeaderboardDAO
 {
     /**
@@ -43,11 +46,19 @@ public interface LeaderboardDAO
     int numberOfWins(@Bind("name") String name );
 
     /**
-     * Returns an Opcional {@link jdbi.Player Player} object with the Players with the top 10 wins.
-     * @return Opcional {@link jdbi.Player Player} object
+     * Returns an {@code int[]} with the wins the top players has.
+     * @return an {@code int[]} with the wins of the top 10 Players
      */
-    @SqlQuery("SELECT * FROM leaderboard ORDER BY wins DESC ROW_COUNT =10")
-    ArrayList<Optional<Player>> getFirstTen();
+    @SqlQuery("SELECT wins FROM leaderboard ORDER BY wins DESC")
+    int[] getFirstTenWinCount();
+
+
+    /**
+     * Returns a {@code String[]} with the top ten Player's names.
+     * @return a {@code String[]} with the top ten Player's names
+     */
+    @SqlQuery("SELECT name FROM leaderboard ORDER BY wins DESC")
+    String[] getFirstTenName();
 
     /**
      * This method is used to decide whether a {@link jdbi.Player Player} is in the table already.

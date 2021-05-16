@@ -12,6 +12,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import jdbi.LeaderboardController;
 import jdbi.Player;
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,7 @@ public class EndGameController
             winner.setFill(Color.RED);
             winnerFlow.getChildren().addAll(winner,annoncer);
         }
+        getLeaderboard();
         closeButton.setOnMouseClicked(new EventHandler<MouseEvent>()
         {
             @Override
@@ -89,7 +91,20 @@ public class EndGameController
     }
     private void saveWin(String winner)
     {
-        LeaderboardController db = new LeaderboardController();
-        db.insertWinner(winner);
+        LeaderboardController.insertWinner(winner);
+    }
+    private void getLeaderboard()
+    {
+        winsFlow.getChildren().add(new Text("Wins:\n"));
+        winnersFlow.getChildren().add(new Text("Winners:\n"));
+
+
+        ArrayList<Player> topTen = new ArrayList<Player>();
+        topTen = LeaderboardController.getFirstTen();
+        for (int i = 0; i < topTen.size(); i++)
+        {
+            winnersFlow.getChildren().add(new Text(topTen.get(i).getName()+"\n"));
+            winsFlow.getChildren().add(new Text(topTen.get(i).getWins()+"\n"));
+        }
     }
 }
