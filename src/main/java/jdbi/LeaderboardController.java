@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class LeaderboardController
 {
     /**
-     * The jdbi object, which we will use to manage database connection.
+     * The static jdbi object, which we will use to manage database connection.
      */
     private static Jdbi jdbi;
 
@@ -37,6 +37,10 @@ public class LeaderboardController
         }
     }
 
+    /**
+     * Returns the static jdbi object.
+     * @return this classes jdbi object
+     */
     public static Jdbi getInstance()
     {
         if(jdbi.equals(null))
@@ -70,6 +74,10 @@ public class LeaderboardController
         }
     }
 
+    /**
+     * Returns an {@code ArrayList} object with ten or less {@link Player Player}s (based on the number of {@code Player}s in our database).
+     * @return an {@code ArrayList} object with ten or less {@link Player Player}s
+     */
     public static ArrayList<Player> getFirstTen()
     {
         int[] winners = jdbi.withExtension(LeaderboardDAO.class, dao -> dao.getFirstTenWinCount());
